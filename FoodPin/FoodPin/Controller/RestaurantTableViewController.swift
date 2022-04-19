@@ -9,9 +9,6 @@ import UIKit
 
 class RestaurantTableViewController: UITableViewController {
     // swiftlint:disable line_length
-    enum Section {
-        case all
-    }
 
     var restaurants: [Restaurant] = [
         Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "Hong Kong", image: "cafedeadend", isFavorite: false),
@@ -40,9 +37,9 @@ class RestaurantTableViewController: UITableViewController {
     lazy var dataSource = configureDataSource()
 
     // MARK: - UITableView Diffable Data Source
-    func configureDataSource() -> UITableViewDiffableDataSource<Section, Restaurant> {
-        let cellIdentifier = "favoritecell"
-        let dataSource = UITableViewDiffableDataSource<Section, Restaurant>(
+    func configureDataSource() -> RestaurantDiffableDataSource {
+        let cellIdentifier = "datacell"
+        let dataSource = RestaurantDiffableDataSource(
             tableView: tableView,
             cellProvider: { tableView, indexPath, _ in
                 let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? RestaurantTableViewCell
@@ -109,5 +106,80 @@ class RestaurantTableViewController: UITableViewController {
 
         // Deselect the row
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+
+    // Swipe left action
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Get the selected restaurant
+        guard let restaurant = self.dataSource.itemIdentifier(for: indexPath) else {
+            return UISwipeActionsConfiguration()
+        }
+
+        // Delete action
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, completionHandler) in
+
+            var snapshot = self.dataSource.snapshot()
+            snapshot.deleteItems([restaurant])
+            self.restaurants.remove(at: indexPath.row)
+            self.dataSource.apply(snapshot, animatingDifferences: true)
+
+            // Call completion handler to dismis the action button
+            completionHandler(true)
+        }
+
+        // Share action
+        let shareAction = UIContextualAction(style: .normal, title: "Share") {(_, _, completionHandler) in
+            let defaultText = "Just checking in at" + restaurant.name
+            let activityController: UIActivityViewController
+
+            if let imageToShare = UIImage(named: restaurant.image) {
+                activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+            } else {
+                activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            }
+
+            if let popoverController = activityController.popoverPresentationController {
+                if let cell = tableView.cellForRow(at: indexPath) {
+                    popoverController.sourceView = cell
+                    popoverController.sourceRect = cell.bounds
+                }
+            }
+
+            self.present(activityController, animated: true, completion: nil)
+            completionHandler(true)
+        }
+
+        deleteAction.backgroundColor = UIColor.systemRed
+        deleteAction.image = UIImage(systemName: "trash")
+
+        shareAction.backgroundColor = UIColor.systemOrange
+        shareAction.image = UIImage(systemName: "square.and.arrow.up")
+
+        // Configure both actions as swipe action
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction, shareAction])
+        return swipeConfiguration
+    }
+
+    // Swipe right action
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Get the selected restaurant
+        guard self.dataSource.itemIdentifier(for: indexPath) != nil else {
+            return UISwipeActionsConfiguration()
+        }
+
+        // Favorite action
+        let favoriteAction = UIContextualAction(style: .normal, title: "") { (_, _, completionHandler) in
+            self.restaurants[indexPath.row].isFavorite = self.restaurants[indexPath.row].isFavorite ? false : true
+            tableView.reloadData()
+            completionHandler(true)
+        }
+
+        let favoriteActionImage = self.restaurants[indexPath.row].isFavorite ? UIImage(systemName: "heart.slash.fill") : UIImage(systemName: "heart.fill")
+        favoriteAction.backgroundColor = UIColor.systemYellow
+        favoriteAction.image = favoriteActionImage
+
+        // Configure favorite actions
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [favoriteAction])
+        return swipeConfiguration
     }
 }
