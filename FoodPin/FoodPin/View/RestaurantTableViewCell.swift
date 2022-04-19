@@ -12,14 +12,14 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet private var locationLabel: UILabel!
     @IBOutlet private var typeLabel: UILabel!
     @IBOutlet private var thumbnailImageView: UIImageView!
-    @IBOutlet private var heartImage: UIImageView!
+    @IBOutlet private var favoriteImageView: UIImageView!
 
-    func configureCell(name: String, location: String, type: String, image: String, heartImageValue: Bool) {
+    func configureCell(name: String, location: String, type: String, image: String, favoriteImageValue: Bool) {
         nameLabel.text = name
         locationLabel.text = location
         typeLabel.text = type
         thumbnailImageView.image = UIImage(named: image)
-        heartImage.isHidden = !heartImageValue
+        favoriteImageView.isHidden = !favoriteImageValue
     }
 
     override func awakeFromNib() {

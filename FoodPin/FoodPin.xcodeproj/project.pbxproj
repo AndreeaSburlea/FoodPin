@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C3D8B3E7C70854F7999EB73A /* Pods_FoodPin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99497F7504BB8AB541C59B5 /* Pods_FoodPin.framework */; };
+		FF4AC47A280EB07E00C2B683 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4AC479280EB07E00C2B683 /* Restaurant.swift */; };
 		FF4F468D280855D600EA89E5 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F468C280855D600EA89E5 /* RestaurantTableViewCell.swift */; };
 		FF799035280800CC00C0EA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF799034280800CC00C0EA25 /* AppDelegate.swift */; };
 		FF799037280800CC00C0EA25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF799036280800CC00C0EA25 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 		6900BD30A51A3E0F49DDA647 /* Pods-FoodPin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPin.debug.xcconfig"; path = "Target Support Files/Pods-FoodPin/Pods-FoodPin.debug.xcconfig"; sourceTree = "<group>"; };
 		C99497F7504BB8AB541C59B5 /* Pods_FoodPin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3FD778F891A31A881F3F8F /* Pods-FoodPin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPin.release.xcconfig"; path = "Target Support Files/Pods-FoodPin/Pods-FoodPin.release.xcconfig"; sourceTree = "<group>"; };
+		FF4AC479280EB07E00C2B683 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		FF4F468C280855D600EA89E5 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		FF799031280800CC00C0EA25 /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF799034280800CC00C0EA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +52,40 @@
 				6900BD30A51A3E0F49DDA647 /* Pods-FoodPin.debug.xcconfig */,
 				DD3FD778F891A31A881F3F8F /* Pods-FoodPin.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		C7A9304C280ED391008E868A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF79904828081A9500C0EA25 /* RestaurantTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C7A9304D280ED3D4008E868A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF4AC479280EB07E00C2B683 /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C7A9304E280ED3FA008E868A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF4F468C280855D600EA89E5 /* RestaurantTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C7A9304F280ED432008E868A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FF79903A280800CC00C0EA25 /* Main.storyboard */,
+				FF79903F280800CE00C0EA25 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		F5EA7843185C2BA32E83C70D /* Frameworks */ = {
@@ -83,13 +117,13 @@
 		FF799033280800CC00C0EA25 /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				C7A9304F280ED432008E868A /* Storyboard */,
+				C7A9304D280ED3D4008E868A /* Model */,
+				C7A9304E280ED3FA008E868A /* View */,
+				C7A9304C280ED391008E868A /* Controller */,
 				FF799034280800CC00C0EA25 /* AppDelegate.swift */,
 				FF799036280800CC00C0EA25 /* SceneDelegate.swift */,
-				FF79904828081A9500C0EA25 /* RestaurantTableViewController.swift */,
-				FF4F468C280855D600EA89E5 /* RestaurantTableViewCell.swift */,
-				FF79903A280800CC00C0EA25 /* Main.storyboard */,
 				FF79903D280800CE00C0EA25 /* Assets.xcassets */,
-				FF79903F280800CE00C0EA25 /* LaunchScreen.storyboard */,
 				FF799042280800CE00C0EA25 /* Info.plist */,
 			);
 			path = FoodPin;
@@ -104,9 +138,9 @@
 			buildPhases = (
 				83BF2ED65FAB243FE8B7F7C5 /* [CP] Check Pods Manifest.lock */,
 				FF79902D280800CC00C0EA25 /* Sources */,
+				FF9A7FE12809506F000AFBA1 /* SwiftLint */,
 				FF79902E280800CC00C0EA25 /* Frameworks */,
 				FF79902F280800CC00C0EA25 /* Resources */,
-				FF9A7FE12809506F000AFBA1 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -211,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4AC47A280EB07E00C2B683 /* Restaurant.swift in Sources */,
 				FF4F468D280855D600EA89E5 /* RestaurantTableViewCell.swift in Sources */,
 				FF799035280800CC00C0EA25 /* AppDelegate.swift in Sources */,
 				FF799037280800CC00C0EA25 /* SceneDelegate.swift in Sources */,

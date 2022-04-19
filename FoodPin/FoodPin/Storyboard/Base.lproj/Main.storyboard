@@ -84,7 +84,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="heartImage" destination="KrT-Kl-blh" id="STI-R2-id3"/>
+                                    <outlet property="favoriteImageView" destination="KrT-Kl-blh" id="cqo-rM-Uzg"/>
                                     <outlet property="locationLabel" destination="O9I-NP-s14" id="J5e-up-3uU"/>
                                     <outlet property="nameLabel" destination="rF8-3l-9YP" id="vLr-3C-gsp"/>
                                     <outlet property="thumbnailImageView" destination="92C-au-cZU" id="yHu-Bf-HFd"/>
@@ -164,7 +164,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="heartImage" destination="nYk-Cf-bUf" id="d5x-Ma-fsR"/>
+                                    <outlet property="favoriteImageView" destination="nYk-Cf-bUf" id="s4d-1S-hdA"/>
                                     <outlet property="locationLabel" destination="sGf-QE-L7u" id="IBx-q3-nay"/>
                                     <outlet property="nameLabel" destination="30i-G0-EhB" id="avZ-gW-2es"/>
                                     <outlet property="thumbnailImageView" destination="Ouj-Dw-vng" id="9lf-gY-mH5"/>
