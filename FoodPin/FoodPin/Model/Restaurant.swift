@@ -2,7 +2,7 @@
 //  Restaurant.swift
 //  FoodPin
 //
-//  Created by Andreea Sburlea on 4/19/22.
+//  Created by Andreea Sburlea on 4/14/22.
 //
 
  struct Restaurant: Hashable {
@@ -45,7 +45,7 @@
              _image = newValue
          }
      }
-     
+
     private var _isFavorite: Bool = false
      var isFavorite: Bool {
          get {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C3D8B3E7C70854F7999EB73A /* Pods_FoodPin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99497F7504BB8AB541C59B5 /* Pods_FoodPin.framework */; };
+		C73D6760280FFBC800373B0A /* RestaurantDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D675F280FFBC800373B0A /* RestaurantDiffableDataSource.swift */; };
 		FF4AC47A280EB07E00C2B683 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4AC479280EB07E00C2B683 /* Restaurant.swift */; };
 		FF4F468D280855D600EA89E5 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F468C280855D600EA89E5 /* RestaurantTableViewCell.swift */; };
 		FF799035280800CC00C0EA25 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF799034280800CC00C0EA25 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		6900BD30A51A3E0F49DDA647 /* Pods-FoodPin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPin.debug.xcconfig"; path = "Target Support Files/Pods-FoodPin/Pods-FoodPin.debug.xcconfig"; sourceTree = "<group>"; };
+		C73D675F280FFBC800373B0A /* RestaurantDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDiffableDataSource.swift; sourceTree = "<group>"; };
 		C99497F7504BB8AB541C59B5 /* Pods_FoodPin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodPin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3FD778F891A31A881F3F8F /* Pods-FoodPin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPin.release.xcconfig"; path = "Target Support Files/Pods-FoodPin/Pods-FoodPin.release.xcconfig"; sourceTree = "<group>"; };
 		FF4AC479280EB07E00C2B683 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				FF4AC479280EB07E00C2B683 /* Restaurant.swift */,
+				C73D675F280FFBC800373B0A /* RestaurantDiffableDataSource.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				FF4F468D280855D600EA89E5 /* RestaurantTableViewCell.swift in Sources */,
 				FF799035280800CC00C0EA25 /* AppDelegate.swift in Sources */,
 				FF799037280800CC00C0EA25 /* SceneDelegate.swift in Sources */,
+				C73D6760280FFBC800373B0A /* RestaurantDiffableDataSource.swift in Sources */,
 				FF79904928081A9500C0EA25 /* RestaurantTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
