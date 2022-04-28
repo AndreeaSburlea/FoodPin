@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dex-Rh-FoT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="W0Q-eT-es2">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Restaurant Table View Controller-->
+        <!--FoodPin-->
         <scene sceneID="qCY-fG-y5N">
             <objects>
                 <tableViewController id="dex-Rh-FoT" customClass="RestaurantTableViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,6 +90,7 @@
                                     <outlet property="nameLabel" destination="rF8-3l-9YP" id="vLr-3C-gsp"/>
                                     <outlet property="thumbnailImageView" destination="92C-au-cZU" id="yHu-Bf-HFd"/>
                                     <outlet property="typeLabel" destination="jzK-nG-8PE" id="eOv-hD-Vw8"/>
+                                    <segue destination="GOI-fn-YIo" kind="show" identifier="showRestaurantDetail" id="rj8-Tq-bLD"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoritecell" id="j05-RZ-mee" customClass="RestaurantTableViewCell" customModule="FoodPin" customModuleProvider="target">
@@ -169,6 +171,7 @@
                                     <outlet property="nameLabel" destination="30i-G0-EhB" id="avZ-gW-2es"/>
                                     <outlet property="thumbnailImageView" destination="Ouj-Dw-vng" id="9lf-gY-mH5"/>
                                     <outlet property="typeLabel" destination="uSP-r7-YeG" id="vlw-Ra-EzX"/>
+                                    <segue destination="GOI-fn-YIo" kind="show" identifier="showRestaurantDetail" id="0Ha-jT-Sza"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -177,12 +180,99 @@
                             <outlet property="delegate" destination="dex-Rh-FoT" id="Bq9-Fe-gur"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="FoodPin" id="gI5-n2-Vhz" userLabel="FoodPin"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imo-KB-Zts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-384.11214953271025" y="-120.5183585313175"/>
+            <point key="canvasLocation" x="515.8878504672897" y="-120.5183585313175"/>
+        </scene>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="Zdf-P4-Jm7">
+            <objects>
+                <viewController id="GOI-fn-YIo" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ysq-mZ-wjv">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-TE-u88">
+                                <rect key="frame" x="0.0" y="96" width="428" height="830"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Edy-4F-ZDj">
+                                <rect key="frame" x="15" y="108" width="398" height="79"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZL-2H-q8u">
+                                        <rect key="frame" x="174" y="0.0" width="50" height="23"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7m7-Ze-TCB">
+                                        <rect key="frame" x="183.33333333333334" y="28" width="31.666666666666657" height="23"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4i-x2-9Tf" userLabel="Restaurant Location">
+                                        <rect key="frame" x="174.66666666666666" y="56" width="48.666666666666657" height="23"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gEK-BO-7SX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ir0-TE-u88" firstAttribute="trailing" secondItem="gEK-BO-7SX" secondAttribute="trailing" id="7vn-UB-mgv"/>
+                            <constraint firstItem="ir0-TE-u88" firstAttribute="top" secondItem="ysq-mZ-wjv" secondAttribute="top" constant="96" id="HMH-Vc-Alt"/>
+                            <constraint firstItem="Edy-4F-ZDj" firstAttribute="leading" secondItem="gEK-BO-7SX" secondAttribute="leading" constant="15" id="Jdo-1h-suS"/>
+                            <constraint firstItem="ir0-TE-u88" firstAttribute="leading" secondItem="gEK-BO-7SX" secondAttribute="leading" id="QNr-vU-cZB"/>
+                            <constraint firstAttribute="bottom" secondItem="ir0-TE-u88" secondAttribute="bottom" id="aCu-MQ-usd"/>
+                            <constraint firstItem="Edy-4F-ZDj" firstAttribute="top" secondItem="gEK-BO-7SX" secondAttribute="top" constant="20" id="dek-Ww-pLg"/>
+                            <constraint firstItem="gEK-BO-7SX" firstAttribute="trailing" secondItem="Edy-4F-ZDj" secondAttribute="trailing" constant="15" id="u7Q-Vq-gjV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="N6s-96-vmh"/>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="ir0-TE-u88" id="g5l-N5-aTY"/>
+                        <outlet property="restaurantLocation" destination="j4i-x2-9Tf" id="rfg-Si-YaH"/>
+                        <outlet property="restaurantName" destination="qZL-2H-q8u" id="C3k-oC-XAT"/>
+                        <outlet property="restaurantType" destination="7m7-Ze-TCB" id="pPa-Z8-Zyz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PDb-gG-M62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1295" y="-121"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jUz-XR-jhD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W0Q-eT-es2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HKj-Y0-jF2">
+                        <rect key="frame" x="0.0" y="44" width="428" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dex-Rh-FoT" kind="relationship" relationship="rootViewController" id="WRc-4E-KHr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFm-1I-yaH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-369" y="-121"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="rj8-Tq-bLD"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
