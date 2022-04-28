@@ -6,6 +6,7 @@
 //
 
  struct Restaurant: Hashable {
+     // swiftlint:disable line_length
     private var _name: String = ""
      var name: String {
          get {
@@ -36,6 +37,26 @@
          }
      }
 
+     private var _phone: String = ""
+      var phone: String {
+          get {
+              return _phone
+          }
+          set {
+              _phone = newValue
+          }
+      }
+
+     private var _description: String = ""
+      var description: String {
+          get {
+              return _description
+          }
+          set {
+              _description = newValue
+          }
+      }
+
     private var _image: String = ""
      var image: String {
          get {
@@ -56,10 +77,12 @@
          }
      }
 
-    public init(name: String, type: String, location: String, image: String, isFavorite: Bool) {
+    public init(name: String, type: String, location: String, phone: String, description: String, image: String, isFavorite: Bool) {
         self._name = name
         self._type = type
         self._location = location
+        self._phone = phone
+        self._description = description
         self._image = image
         self._isFavorite = isFavorite
     }

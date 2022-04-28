@@ -8,21 +8,20 @@
 import UIKit
 
 class RestaurantDetailViewController: UIViewController {
-
-    @IBOutlet private var restaurantImageView: UIImageView!
-    @IBOutlet private var restaurantName: UILabel!
-    @IBOutlet private var restaurantType: UILabel!
-    @IBOutlet private var restaurantLocation: UILabel!
+    @IBOutlet private var tableView: UITableView!
+    @IBOutlet private var headerView: RestaurantDetailHeaderView!
 
     var restaurant: Restaurant!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = false
 
-        navigationItem.largeTitleDisplayMode = .never
-        restaurantImageView.image = UIImage(named: restaurant.image)
-        restaurantName.text = restaurant.name
-        restaurantType.text = restaurant.type
-        restaurantLocation.text = restaurant.location
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.separatorStyle = .none
+
+        // Configure header view
+        headerView.configureHeader(restaurant: restaurant)
     }
 }
