@@ -59,14 +59,36 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: - View controller life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
         tableView.dataSource = dataSource
         var snapshot = NSDiffableDataSourceSnapshot<Section, Restaurant>()
         snapshot.appendSections([.all])
         snapshot.appendItems(restaurants, toSection: .all)
+
         dataSource.apply(snapshot, animatingDifferences: false)
+
         tableView.separatorStyle = .none
         tableView.cellLayoutMarginsFollowReadableWidth = true
+
+        if let appearance = navigationController?.navigationBar.standardAppearance {
+            appearance.configureWithTransparentBackground()
+            if let customFont = UIFont(name: "Nunito-Bold", size: 45.0) {
+                appearance.titleTextAttributes = [.foregroundColor: UIColor(named: "NavigationBarTitle") as Any]
+                appearance.largeTitleTextAttributes = [.foregroundColor: UIColor(named: "NavigationBarTitle") as Any, .font: customFont]
+            }
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.hidesBarsOnSwipe = false
+        navigationItem.backButtonTitle = ""
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.hidesBarsOnSwipe = true
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
