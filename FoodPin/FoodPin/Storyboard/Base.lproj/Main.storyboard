@@ -67,7 +67,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" id="KrT-Kl-blh">
-                                                            <rect key="frame" x="74.333333333333314" y="-1.3333333333333359" width="26.666666666666671" height="23.666666666666668"/>
+                                                            <rect key="frame" x="74.333333333333314" y="-1.3333333333333357" width="26.666666666666671" height="23.666666666666668"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <color key="tintColor" systemColor="systemYellowColor"/>
                                                             <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
@@ -196,11 +196,11 @@
             <objects>
                 <viewController id="GOI-fn-YIo" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ysq-mZ-wjv">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Bqw-S3-KhS">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="xCg-0g-h0e" userLabel="Header View" customClass="RestaurantDetailHeaderView" customModule="FoodPin" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="428" height="445"/>
@@ -232,7 +232,7 @@
                                             </subviews>
                                         </stackView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="no2-DH-NgM">
-                                            <rect key="frame" x="347.33333333333326" y="18" width="70.666666666666686" height="31"/>
+                                            <rect key="frame" x="347.33333333333331" y="18" width="70.666666666666686" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="31" id="6ea-sT-Xi6"/>
                                             </constraints>
@@ -356,6 +356,37 @@
                                             <outlet property="phoneTitleLabel" destination="e4E-bx-gSw" id="d42-Hp-Ks3"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantDetailMapCell" id="DxY-b3-zaR" customClass="RestaurantDetailMapCell" customModule="FoodPin" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="593.33333396911621" width="428" height="240.33332824707031"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DxY-b3-zaR" id="yqT-1b-cet">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="240.33332824707031"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qe-nq-Aui">
+                                                    <rect key="frame" x="20" y="20" width="388" height="200.33333333333334"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="S3Z-cg-qxU"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </mapView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5qe-nq-Aui" firstAttribute="top" secondItem="yqT-1b-cet" secondAttribute="top" constant="20" id="KbU-eR-tAI"/>
+                                                <constraint firstAttribute="bottom" secondItem="5qe-nq-Aui" secondAttribute="bottom" constant="20" id="eV7-yz-a2c"/>
+                                                <constraint firstItem="5qe-nq-Aui" firstAttribute="leading" secondItem="yqT-1b-cet" secondAttribute="leading" constant="20" id="iK1-xf-oJy"/>
+                                                <constraint firstAttribute="trailing" secondItem="5qe-nq-Aui" secondAttribute="trailing" constant="20" id="xRC-Ff-0gf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="mapView" destination="5qe-nq-Aui" id="TB4-wC-mWO"/>
+                                            <segue destination="C0D-Qs-Nod" kind="show" identifier="showMap" id="dRY-lc-GVg"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -369,6 +400,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="N6s-96-vmh"/>
+                    <size key="freeformSize" width="428" height="1000"/>
                     <connections>
                         <outlet property="headerView" destination="xCg-0g-h0e" id="pnb-Ca-Xwh"/>
                         <outlet property="tableView" destination="Bqw-S3-KhS" id="KKZ-F8-W2z"/>
@@ -377,6 +409,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDb-gG-M62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1292.5233644859813" y="-121.16630669546437"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="AvR-uJ-asT">
+            <objects>
+                <viewController id="C0D-Qs-Nod" customClass="MapViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qch-4e-zBH">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XsO-Ta-JcI">
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NTS-7R-fvb"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="XsO-Ta-JcI" secondAttribute="bottom" id="B15-kf-gTW"/>
+                            <constraint firstItem="XsO-Ta-JcI" firstAttribute="leading" secondItem="NTS-7R-fvb" secondAttribute="leading" id="ZI2-84-UuV"/>
+                            <constraint firstItem="XsO-Ta-JcI" firstAttribute="trailing" secondItem="NTS-7R-fvb" secondAttribute="trailing" id="bQm-QU-QBX"/>
+                            <constraint firstItem="XsO-Ta-JcI" firstAttribute="top" secondItem="qch-4e-zBH" secondAttribute="top" id="mRb-Ky-usv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="euI-Tb-0Dn"/>
+                    <connections>
+                        <outlet property="mapView" destination="XsO-Ta-JcI" id="shi-0b-svw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B4e-DK-SAk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2117" y="-121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jUz-XR-jhD">
