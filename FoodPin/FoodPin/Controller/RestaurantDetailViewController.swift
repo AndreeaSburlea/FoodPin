@@ -25,6 +25,8 @@ class RestaurantDetailViewController: UIViewController {
 
         // Configure header view
         headerView.configureHeader(restaurant: restaurant)
+
+        navigationItem.backButtonTitle = ""
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,5 +45,18 @@ class RestaurantDetailViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+
+    // swiftlint:disable force_cast
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMap" {
+            let destinationController = segue.destination as! MapViewController
+
+            destinationController.restaurant = restaurant
+        }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 }
