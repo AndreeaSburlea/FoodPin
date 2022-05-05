@@ -77,7 +77,35 @@
          }
      }
 
-    public init(name: String, type: String, location: String, phone: String, description: String, image: String, isFavorite: Bool) {
+     private var _rating: Rating?
+     var rating: Rating? {
+         get {
+             return _rating
+         }
+         set {
+             _rating = newValue
+         }
+     }
+
+     enum Rating: String {
+         case awesome
+         case good
+         case okay
+         case bad
+         case terrible
+
+        var image: String {
+            switch self {
+            case .awesome: return "love"
+            case .good: return "cool"
+            case .okay: return "happy"
+            case .bad: return "sad"
+            case .terrible: return "angry"
+            }
+        }
+     }
+
+     public init(name: String, type: String, location: String, phone: String, description: String, image: String, isFavorite: Bool) {
         self._name = name
         self._type = type
         self._location = location
