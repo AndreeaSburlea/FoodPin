@@ -9,6 +9,7 @@ import UIKit
 
 class RestaurantDetailHeaderView: UIView {
     @IBOutlet private var headerImageView: UIImageView!
+    @IBOutlet private var ratingImageView: UIImageView!
     @IBOutlet private var heartButton: UIButton!
     @IBOutlet private var nameLabel: UILabel! {
         didSet {
@@ -37,5 +38,14 @@ class RestaurantDetailHeaderView: UIView {
         heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white
         nameLabel.text = restaurant.name
         typeLabel.text = restaurant.type
+    }
+
+    func setRatingImage(imageRating: String) {
+        ratingImageView.image = UIImage(named: imageRating)
+    }
+
+    func configureRatingImage(transform: CGAffineTransform, alpha: CGFloat) {
+        ratingImageView.transform = transform
+        ratingImageView.alpha = alpha
     }
 }
