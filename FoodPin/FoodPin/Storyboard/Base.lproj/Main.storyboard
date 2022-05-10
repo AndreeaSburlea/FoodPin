@@ -194,8 +194,23 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="emptyRestaurantView" destination="NEa-6X-vdd" id="U85-Tq-aJd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="imo-KB-Zts" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="zs7-py-oUn">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emptydata" translatesAutoresizingMaskIntoConstraints="NO" id="NEa-6X-vdd">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="lMy-5e-FZz"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="515.8878504672897" y="-120.5183585313175"/>
         </scene>
@@ -246,28 +261,14 @@
                                                 </label>
                                             </subviews>
                                         </stackView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="no2-DH-NgM">
-                                            <rect key="frame" x="347.33333333333331" y="18" width="70.666666666666686" height="31"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="31" id="6ea-sT-Xi6"/>
-                                            </constraints>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="30"/>
-                                            </buttonConfiguration>
-                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstItem="Ls7-OS-M90" firstAttribute="leading" secondItem="xCg-0g-h0e" secondAttribute="leading" id="2ic-2Q-nsg"/>
-                                        <constraint firstItem="no2-DH-NgM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xCg-0g-h0e" secondAttribute="leading" constant="20" symbolic="YES" id="5Bt-L9-aKt"/>
                                         <constraint firstAttribute="bottom" secondItem="jRk-N9-Bta" secondAttribute="bottom" id="6KT-cK-WeZ"/>
                                         <constraint firstItem="Ymd-JC-CTR" firstAttribute="leading" secondItem="xCg-0g-h0e" secondAttribute="leading" constant="20" id="86w-Wf-qkv"/>
                                         <constraint firstItem="Ls7-OS-M90" firstAttribute="top" secondItem="xCg-0g-h0e" secondAttribute="top" id="9p2-M5-v40"/>
                                         <constraint firstAttribute="bottom" secondItem="Ls7-OS-M90" secondAttribute="bottom" id="Acr-Nf-kP3"/>
-                                        <constraint firstItem="no2-DH-NgM" firstAttribute="top" secondItem="xCg-0g-h0e" secondAttribute="topMargin" constant="10" id="DG2-l2-0qa"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="no2-DH-NgM" secondAttribute="trailingMargin" constant="10" id="DJo-Oh-YRn"/>
                                         <constraint firstAttribute="trailing" secondItem="Ymd-JC-CTR" secondAttribute="trailing" constant="150" id="KqK-CX-UvQ">
                                             <variation key="heightClass=regular-widthClass=regular" constant="20"/>
                                         </constraint>
@@ -443,7 +444,22 @@
                             <constraint firstItem="Bqw-S3-KhS" firstAttribute="top" secondItem="ysq-mZ-wjv" secondAttribute="top" id="T78-ES-8gR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="N6s-96-vmh"/>
+                    <navigationItem key="navigationItem" id="N6s-96-vmh">
+                        <barButtonItem key="rightBarButtonItem" id="rAx-CP-WwM">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="no2-DH-NgM">
+                                <rect key="frame" x="337.33333333333331" y="0.0" width="70.666666666666686" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6ea-sT-Xi6"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="" image="heart" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="428" height="1200"/>
                     <connections>
                         <outlet property="headerView" destination="xCg-0g-h0e" id="pnb-Ca-Xwh"/>
@@ -452,7 +468,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PDb-gG-M62" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="-121"/>
+            <point key="canvasLocation" x="1350" y="-121.16630669546437"/>
         </scene>
         <!--New Restaurant-->
         <scene sceneID="idf-g5-Hns">
@@ -660,7 +676,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Save" id="cPj-2A-Z0A">
                             <color key="tintColor" name="NavigationBarTitle"/>
                             <connections>
-                                <action selector="saveRestaurant" destination="eTX-rT-qEG" id="tYk-OP-TPj"/>
+                                <action selector="saveButtonTapped" destination="eTX-rT-qEG" id="tYk-OP-TPj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -865,6 +881,7 @@
     <resources>
         <image name="angry" width="78" height="103"/>
         <image name="cool" width="78" height="83"/>
+        <image name="emptydata" width="1440" height="1024"/>
         <image name="happy" width="78" height="86"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
