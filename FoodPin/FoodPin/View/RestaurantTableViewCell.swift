@@ -14,11 +14,11 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet private var thumbnailImageView: UIImageView!
     @IBOutlet private var favoriteImageView: UIImageView!
 
-    func configureCell(name: String, location: String, type: String, image: String, favoriteImageValue: Bool) {
+    func configureCell(name: String, location: String, type: String, image: UIImage, favoriteImageValue: Bool) {
         nameLabel.text = name
         locationLabel.text = location
         typeLabel.text = type
-        thumbnailImageView.image = UIImage(named: image)
+        thumbnailImageView.image = image
         favoriteImageView.isHidden = !favoriteImageValue
     }
 

@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class NewRestaurantController: UITableViewController {
     // swiftlint:disable line_length
+    var restaurant: Restaurant!
 
     @IBOutlet private var nameTextField: RoundedTextField! {
         didSet {
@@ -54,13 +56,23 @@ class NewRestaurantController: UITableViewController {
         }
     }
 
-    @IBAction func saveRestaurant() {
+    @IBAction func saveButtonTapped() {
         if validate() {
-            print("Name: " + nameTextField.text!)
-            print("Type: " + typeTextField.text!)
-            print("Adress: " + addressTextField.text!)
-            print("Phone: " + phoneTextField.text!)
-            print("Description: " + descriptionTextView.text!)
+            if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                restaurant = Restaurant(context: appDelegate.persistentContainer.viewContext)
+                restaurant.name = nameTextField.text!
+                restaurant.type = typeTextField.text!
+                restaurant.location = addressTextField.text!
+                restaurant.phone = phoneTextField.text!
+                restaurant.summary = descriptionTextView.text
+                restaurant.isFavorite = false
+
+                if let imageData = photoImageView.image?.pngData() {
+                    restaurant.image = imageData
+                }
+                print("Saving data to context...")
+                appDelegate.saveContext()
+            }
         } else {
             let alert = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))

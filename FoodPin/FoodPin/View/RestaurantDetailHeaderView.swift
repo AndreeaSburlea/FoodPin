@@ -32,7 +32,7 @@ class RestaurantDetailHeaderView: UIView {
     private var restaurant: Restaurant!
 
     func configureHeader(restaurant: Restaurant) {
-        headerImageView.image = UIImage(named: restaurant.image)
+        headerImageView.image = UIImage(data: restaurant.image)
         let heartImage = restaurant.isFavorite ? "heart.fill" : "heart"
         heartButton.setImage(UIImage(systemName: heartImage), for: .normal)
         heartButton.tintColor = restaurant.isFavorite ? .systemYellow : .white

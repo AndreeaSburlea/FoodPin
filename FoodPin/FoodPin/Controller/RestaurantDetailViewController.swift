@@ -26,6 +26,10 @@ class RestaurantDetailViewController: UIViewController {
             if let rating = Restaurant.Rating(rawValue: identifier) {
                 self.restaurant.rating = rating
                 self.headerView.setRatingImage(imageRating: rating.image)
+
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    appDelegate.saveContext()
+                }
             }
 
             let scaleTransform = CGAffineTransform.init(scaleX: 0.1, y: 0.1)
@@ -52,8 +56,11 @@ class RestaurantDetailViewController: UIViewController {
 
         // Configure header view
         headerView.configureHeader(restaurant: restaurant)
-
         navigationItem.backButtonTitle = ""
+
+        if let rating = restaurant.rating {
+            self.headerView.setRatingImage(imageRating: rating.image)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
