@@ -444,7 +444,7 @@
                             <constraint firstItem="Bqw-S3-KhS" firstAttribute="top" secondItem="ysq-mZ-wjv" secondAttribute="top" id="T78-ES-8gR"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="N6s-96-vmh">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="N6s-96-vmh">
                         <barButtonItem key="rightBarButtonItem" id="rAx-CP-WwM">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="no2-DH-NgM">
                                 <rect key="frame" x="337.33333333333331" y="0.0" width="70.666666666666686" height="44"/>

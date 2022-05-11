@@ -18,6 +18,7 @@ class RestaurantTableViewController: UITableViewController {
 
     var restaurants: [Restaurant] = []
     var fetchResultController: NSFetchedResultsController<Restaurant>!
+    var searchController: UISearchController!
     lazy var dataSource = configureDataSource()
 
     // MARK: - UITableView Diffable Data Source
@@ -72,6 +73,23 @@ class RestaurantTableViewController: UITableViewController {
         // Prepare the empty view
         tableView.backgroundView = emptyRestaurantView
         tableView.backgroundView?.isHidden = restaurants.count == 0 ? false : true
+
+        // Search bar
+        searchController = UISearchController(searchResultsController: nil)
+        // Search bar in the navigation bar
+        self.navigationItem.searchController = searchController
+
+        // Search bar in the table header view
+//        tableView.tableHeaderView = searchController.searchBar
+
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+
+        searchController.searchBar.placeholder = "Search restaurants..."
+        searchController.searchBar.backgroundImage = UIImage()
+        searchController.searchBar.tintColor = UIColor(named: "NavigationBarTitle")
+
+        navigationItem.largeTitleDisplayMode = .always
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -89,9 +107,14 @@ class RestaurantTableViewController: UITableViewController {
         }
     }
 
-    func fetchRestaurantData() {
+    func fetchRestaurantData(searchText: String = "") {
         // Fetch data from data source
         let fetchRequest: NSFetchRequest<Restaurant> = Restaurant.fetchRequest()
+
+        if !searchText.isEmpty {
+            fetchRequest.predicate = NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", argumentArray: [searchText, searchText])
+        }
+
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
 
@@ -102,7 +125,7 @@ class RestaurantTableViewController: UITableViewController {
 
             do {
                 try fetchResultController.performFetch()
-                updateSnapshot()
+                updateSnapshot(animatingChange: searchText.isEmpty ? false : true)
             } catch {
                 print(error)
             }
@@ -126,6 +149,11 @@ class RestaurantTableViewController: UITableViewController {
     // MARK: - UITableViewDelegate Protocol
     // Swipe left action
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // Disable delete and share buttons
+        if searchController.isActive {
+            return UISwipeActionsConfiguration()
+        }
+
         // Get the selected restaurant
         guard let restaurant = self.dataSource.itemIdentifier(for: indexPath) else {
             return UISwipeActionsConfiguration()
@@ -243,5 +271,15 @@ class RestaurantTableViewController: UITableViewController {
     extension RestaurantTableViewController: NSFetchedResultsControllerDelegate {
         func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
             updateSnapshot()
+    }
+}
+
+extension RestaurantTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else {
+            return
+        }
+
+        fetchRestaurantData(searchText: searchText)
     }
 }
