@@ -47,8 +47,6 @@ class RestaurantDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.prefersLargeTitles = false
-
         tableView.contentInsetAdjustmentBehavior = .never
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,6 +55,7 @@ class RestaurantDetailViewController: UIViewController {
         // Configure header view
         headerView.configureHeader(restaurant: restaurant)
         navigationItem.backButtonTitle = ""
+        navigationItem.largeTitleDisplayMode = .never
 
         if let rating = restaurant.rating {
             self.headerView.setRatingImage(imageRating: rating.image)
@@ -68,13 +67,6 @@ class RestaurantDetailViewController: UIViewController {
 
         navigationController?.hidesBarsOnSwipe = false
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = false
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
