@@ -56,7 +56,7 @@ class NewRestaurantController: UITableViewController {
         }
     }
 
-    @IBAction func saveButtonTapped() {
+    @IBAction private func saveButtonTapped() {
         if validate() {
             if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
                 restaurant = Restaurant(context: appDelegate.persistentContainer.viewContext)

@@ -13,11 +13,11 @@ class RestaurantDetailViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var headerView: RestaurantDetailHeaderView!
 
-    @IBAction func close(segue: UIStoryboardSegue) {
+    @IBAction private func close(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
 
-    @IBAction func rateRestaurant(segue: UIStoryboardSegue) {
+    @IBAction private func rateRestaurant(segue: UIStoryboardSegue) {
         guard let identifier = segue.identifier else {
             return
         }
