@@ -82,4 +82,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        UserDefaults.standard.set(false, forKey: "hasViewedWalkthrough")
+    }
 }

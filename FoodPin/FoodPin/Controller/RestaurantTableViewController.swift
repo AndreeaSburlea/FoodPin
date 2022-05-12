@@ -12,7 +12,7 @@ class RestaurantTableViewController: UITableViewController {
     // swiftlint:disable line_length
     @IBOutlet private var emptyRestaurantView: UIView!
 
-    @IBAction func unwindToHome(segue: UIStoryboardSegue) {
+    @IBAction private func unwindToHome(segue: UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
 
@@ -96,6 +96,18 @@ class RestaurantTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         navigationController?.hidesBarsOnSwipe = true
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
+
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthroughViewController {
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
