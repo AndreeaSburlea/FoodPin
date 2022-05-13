@@ -28,11 +28,9 @@ class WalkthroughViewController: UIViewController {
             switch index {
             case 0...1:
                     walkthroughPageViewController?.forwardPage()
-
             case 2:
                     UserDefaults.standard.set(true, forKey: "hasViewedWalkthrough")
                     dismiss(animated: true, completion: nil)
-
             default: break
             }
         }

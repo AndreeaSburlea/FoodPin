@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C3D8B3E7C70854F7999EB73A /* Pods_FoodPin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99497F7504BB8AB541C59B5 /* Pods_FoodPin.framework */; };
+		C71CDDB928323658007B2531 /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71CDDB828323658007B2531 /* About.storyboard */; };
+		C71CDDBB283236B3007B2531 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71CDDBA283236B3007B2531 /* Discover.storyboard */; };
 		C7297191282B99DF0099DE27 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7297190282B99DF0099DE27 /* Onboarding.storyboard */; };
 		C7297193282BCDE80099DE27 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7297192282BCDE80099DE27 /* WalkthroughContentViewController.swift */; };
 		C7297195282BD0FC0099DE27 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7297194282BD0FC0099DE27 /* WalkthroughPageViewController.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		6900BD30A51A3E0F49DDA647 /* Pods-FoodPin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodPin.debug.xcconfig"; path = "Target Support Files/Pods-FoodPin/Pods-FoodPin.debug.xcconfig"; sourceTree = "<group>"; };
+		C71CDDB828323658007B2531 /* About.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = About.storyboard; sourceTree = "<group>"; };
+		C71CDDBA283236B3007B2531 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		C7297190282B99DF0099DE27 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C7297192282BCDE80099DE27 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		C7297194282BD0FC0099DE27 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 		C7A9304F280ED432008E868A /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				C71CDDBA283236B3007B2531 /* Discover.storyboard */,
+				C71CDDB828323658007B2531 /* About.storyboard */,
 				FF79903A280800CC00C0EA25 /* Main.storyboard */,
 				FF79903F280800CE00C0EA25 /* LaunchScreen.storyboard */,
 				C7297190282B99DF0099DE27 /* Onboarding.storyboard */,
@@ -275,6 +281,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF799041280800CE00C0EA25 /* LaunchScreen.storyboard in Resources */,
+				C71CDDBB283236B3007B2531 /* Discover.storyboard in Resources */,
+				C71CDDB928323658007B2531 /* About.storyboard in Resources */,
 				C7972E10281AB72F00661E4C /* Nunito-Bold.ttf in Resources */,
 				FF79903E280800CE00C0EA25 /* Assets.xcassets in Resources */,
 				C7297191282B99DF0099DE27 /* Onboarding.storyboard in Resources */,
