@@ -44,6 +44,7 @@ extension WalkthroughPageViewController: UIPageViewControllerDataSource {
             index -= 1
             return contentViewController(at: index)
         }
+
         return nil
     }
 
@@ -53,6 +54,7 @@ extension WalkthroughPageViewController: UIPageViewControllerDataSource {
             index += 1
             return contentViewController(at: index)
         }
+
         return nil
     }
 
@@ -72,6 +74,7 @@ extension WalkthroughPageViewController: UIPageViewControllerDataSource {
 
             return pageContentViewController
         }
+
         return nil
     }
 
