@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "HEADING"; ObjectID = "2tz-mA-MDK"; */
+"2tz-mA-MDK.text" = "HEADING";
+
+/* Class = "UIButton"; configuration.title = "Skip"; ObjectID = "6PJ-Ic-goY"; */
+"6PJ-Ic-goY.configuration.title" = "跳過";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "6PJ-Ic-goY"; */
+"6PJ-Ic-goY.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Subheading"; ObjectID = "bbo-UH-nUD"; */
+"bbo-UH-nUD.text" = "Subheading";
+
+/* Class = "UIButton"; configuration.title = "NEXT"; ObjectID = "iEp-kG-esw"; */
+"iEp-kG-esw.configuration.title" = "下一步";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iEp-kG-esw"; */
+"iEp-kG-esw.normalTitle" = "Button";

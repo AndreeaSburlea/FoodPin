@@ -74,8 +74,8 @@ class NewRestaurantController: UITableViewController {
                 appDelegate.saveContext()
             }
         } else {
-            let alert = UIAlertController(title: "Oops", message: "We can't proceed because one of the fields is blank. Please note that all fields are required.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            let alert = UIAlertController(title: String(localized: "Oops"), message: String(localized: "We can't proceed because one of the fields is blank. Please note that all fields are required."), preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: String(localized: "OK"), style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -131,8 +131,8 @@ class NewRestaurantController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let photoSourceRequestController = UIAlertController(title: "", message: "Chose your photo source", preferredStyle: .actionSheet)
-            let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: {(_) in
+            let photoSourceRequestController = UIAlertController(title: "", message: String(localized: "Chose your photo source"), preferredStyle: .actionSheet)
+            let cameraAction = UIAlertAction(title: String(localized: "Camera"), style: .default, handler: {(_) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let imagePicker = UIImagePickerController()
                     imagePicker.allowsEditing = false
@@ -142,7 +142,7 @@ class NewRestaurantController: UITableViewController {
                 }
             })
 
-            let photoLibraryAction = UIAlertAction(title: "Photo library", style: .default, handler: { (_) in
+            let photoLibraryAction = UIAlertAction(title: String(localized: "Photo library"), style: .default, handler: { (_) in
                 if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
                     let imagePicker = UIImagePickerController()
                     imagePicker.allowsEditing = false

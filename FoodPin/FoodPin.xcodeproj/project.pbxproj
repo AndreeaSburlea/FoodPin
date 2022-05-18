@@ -12,11 +12,13 @@
 		C71CDDBB283236B3007B2531 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C71CDDBA283236B3007B2531 /* Discover.storyboard */; };
 		C71CDDBD28326F56007B2531 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71CDDBC28326F56007B2531 /* AboutTableViewController.swift */; };
 		C71CDDBF28327EBA007B2531 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71CDDBE28327EBA007B2531 /* WebViewController.swift */; };
-		C7297191282B99DF0099DE27 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7297190282B99DF0099DE27 /* Onboarding.storyboard */; };
 		C7297193282BCDE80099DE27 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7297192282BCDE80099DE27 /* WalkthroughContentViewController.swift */; };
 		C7297195282BD0FC0099DE27 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7297194282BD0FC0099DE27 /* WalkthroughPageViewController.swift */; };
 		C7297197282BD9600099DE27 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7297196282BD9600099DE27 /* WalkthroughViewController.swift */; };
 		C73D6760280FFBC800373B0A /* RestaurantDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73D675F280FFBC800373B0A /* RestaurantDiffableDataSource.swift */; };
+		C752ED1F2833E16100A394E4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C752ED1D2833E16100A394E4 /* InfoPlist.strings */; };
+		C752ED222833E16100A394E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C752ED202833E16100A394E4 /* Localizable.strings */; };
+		C752ED252833E4C600A394E4 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C752ED272833E4C600A394E4 /* Onboarding.storyboard */; };
 		C75E632728196B67002D1B74 /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75E632628196B67002D1B74 /* RestaurantDetailViewController.swift */; };
 		C7972E0E281AB72100661E4C /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7972E0D281AB72100661E4C /* Nunito-Regular.ttf */; };
 		C7972E10281AB72F00661E4C /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7972E0F281AB72F00661E4C /* Nunito-Bold.ttf */; };
@@ -48,11 +50,21 @@
 		C71CDDBA283236B3007B2531 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		C71CDDBC28326F56007B2531 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		C71CDDBE28327EBA007B2531 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		C7297190282B99DF0099DE27 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		C7297192282BCDE80099DE27 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		C7297194282BD0FC0099DE27 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		C7297196282BD9600099DE27 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		C73D675F280FFBC800373B0A /* RestaurantDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDiffableDataSource.swift; sourceTree = "<group>"; };
+		C752ED192833DE4200A394E4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		C752ED1A2833DE4200A394E4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		C752ED1B2833DE7700A394E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		C752ED1C2833DE7700A394E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C752ED1E2833E16100A394E4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		C752ED212833E16100A394E4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		C752ED232833E2E900A394E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C752ED242833E2E900A394E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C752ED262833E4C600A394E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		C752ED292833E4D400A394E4 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Onboarding.strings"; sourceTree = "<group>"; };
+		C752ED2B2833E50800A394E4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Onboarding.strings; sourceTree = "<group>"; };
 		C75E632628196B67002D1B74 /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		C7972E0D281AB72100661E4C /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		C7972E0F281AB72F00661E4C /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
@@ -176,7 +188,7 @@
 				C71CDDB828323658007B2531 /* About.storyboard */,
 				FF79903A280800CC00C0EA25 /* Main.storyboard */,
 				FF79903F280800CE00C0EA25 /* LaunchScreen.storyboard */,
-				C7297190282B99DF0099DE27 /* Onboarding.storyboard */,
+				C752ED272833E4C600A394E4 /* Onboarding.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -221,6 +233,8 @@
 				FF799036280800CC00C0EA25 /* SceneDelegate.swift */,
 				FF79903D280800CE00C0EA25 /* Assets.xcassets */,
 				FF799042280800CE00C0EA25 /* Info.plist */,
+				C752ED202833E16100A394E4 /* Localizable.strings */,
+				C752ED1D2833E16100A394E4 /* InfoPlist.strings */,
 				C7D6FE9928293D9500E854CE /* FoodPin.xcdatamodeld */,
 			);
 			path = FoodPin;
@@ -270,6 +284,8 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hant",
+				de,
 			);
 			mainGroup = FF799028280800CB00C0EA25;
 			productRefGroup = FF799032280800CC00C0EA25 /* Products */;
@@ -291,8 +307,10 @@
 				C71CDDB928323658007B2531 /* About.storyboard in Resources */,
 				C7972E10281AB72F00661E4C /* Nunito-Bold.ttf in Resources */,
 				FF79903E280800CE00C0EA25 /* Assets.xcassets in Resources */,
-				C7297191282B99DF0099DE27 /* Onboarding.storyboard in Resources */,
+				C752ED222833E16100A394E4 /* Localizable.strings in Resources */,
+				C752ED252833E4C600A394E4 /* Onboarding.storyboard in Resources */,
 				C7972E0E281AB72100661E4C /* Nunito-Regular.ttf in Resources */,
+				C752ED1F2833E16100A394E4 /* InfoPlist.strings in Resources */,
 				FF79903C280800CC00C0EA25 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -376,10 +394,40 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		C752ED1D2833E16100A394E4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C752ED1E2833E16100A394E4 /* zh-Hant */,
+				C752ED232833E2E900A394E4 /* de */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C752ED202833E16100A394E4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C752ED212833E16100A394E4 /* zh-Hant */,
+				C752ED242833E2E900A394E4 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		C752ED272833E4C600A394E4 /* Onboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C752ED262833E4C600A394E4 /* Base */,
+				C752ED292833E4D400A394E4 /* zh-Hant */,
+				C752ED2B2833E50800A394E4 /* de */,
+			);
+			name = Onboarding.storyboard;
+			sourceTree = "<group>";
+		};
 		FF79903A280800CC00C0EA25 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FF79903B280800CC00C0EA25 /* Base */,
+				C752ED192833DE4200A394E4 /* zh-Hant */,
+				C752ED1B2833DE7700A394E4 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -388,6 +436,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				FF799040280800CE00C0EA25 /* Base */,
+				C752ED1A2833DE4200A394E4 /* zh-Hant */,
+				C752ED1C2833DE7700A394E4 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -399,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -459,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -517,6 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 95R37LARA4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -545,6 +598,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 95R37LARA4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodPin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
