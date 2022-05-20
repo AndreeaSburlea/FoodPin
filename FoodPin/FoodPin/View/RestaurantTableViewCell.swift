@@ -21,6 +21,9 @@ class RestaurantTableViewCell: UITableViewCell {
         thumbnailImageView.image = image
         favoriteImageView.isHidden = !favoriteImageValue
     }
+    func setFavoriteImage(favoriteImageValue: Bool) {
+        favoriteImageView.isHidden = !favoriteImageValue
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()

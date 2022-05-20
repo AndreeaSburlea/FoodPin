@@ -244,6 +244,82 @@ class RestaurantTableViewController: UITableViewController {
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [favoriteAction])
         return swipeConfiguration
     }
+
+    // Context menu with action items
+    override func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+
+        // Get the selected restaurant
+        guard let restaurant = self.dataSource.itemIdentifier(for: indexPath) else {
+            return nil
+        }
+
+        let configuration = UIContextMenuConfiguration(identifier: indexPath.row as NSCopying, previewProvider: {
+            guard let restaurantDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else {
+
+                return nil
+            }
+
+            restaurantDetailViewController.restaurant = restaurant
+
+            return restaurantDetailViewController
+        }) { _ in
+            let favoriteActionImage = self.restaurants[indexPath.row].isFavorite ? UIImage(systemName: "heart.slash") : UIImage(systemName: "heart")
+            let favoriteText = self.restaurants[indexPath.row].isFavorite ? String("Remove from favorite") : String("Save as favorite")
+            let favoriteAction = UIAction(title: favoriteText, image: favoriteActionImage) { _ in
+                let cell = tableView.cellForRow(at: indexPath) as? RestaurantTableViewCell
+                self.restaurants[indexPath.row].isFavorite.toggle()
+                cell?.setFavoriteImage(favoriteImageValue: restaurant.isFavorite)
+            }
+
+            let shareAction = UIAction(title: "Share", image: UIImage(systemName: "square.and.arrow.up")) { _ in
+                let defaultText = NSLocalizedString("Just checking in at", comment: "Just checking in at") + self.restaurants[indexPath.row].name
+                let activityController: UIActivityViewController
+                if let imageToShare = UIImage(data: restaurant.image as Data) {
+                    activityController = UIActivityViewController(activityItems: [defaultText, imageToShare], applicationActivities: nil)
+                } else {
+                    activityController = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+                }
+
+                self.present(activityController, animated: true, completion: nil)
+            }
+
+            let deleteAction = UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+
+                // Delete the row from the data source
+                if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+                    let context = appDelegate.persistentContainer.viewContext
+                    let restaurantToDelete = self.fetchResultController.object(at: indexPath)
+                    context.delete(restaurantToDelete)
+                    appDelegate.saveContext()
+                }
+            }
+
+            // Create and return a UIMenu with the share action
+            return UIMenu(title: "", children: [favoriteAction, shareAction, deleteAction])
+        }
+
+        return configuration
+    }
+
+    override func tableView(_ tableView: UITableView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        guard let selectedRow = configuration.identifier as? Int else {
+            print("Fail to retrieve the row number")
+
+            return
+        }
+
+        guard let restaurantDetailViewController = self.storyboard?.instantiateViewController(withIdentifier: "RestaurantDetailViewController") as? RestaurantDetailViewController else {
+
+            return
+        }
+
+        restaurantDetailViewController.restaurant = self.restaurants[selectedRow]
+
+        animator.preferredCommitStyle = .pop
+        animator.addCompletion {
+            self.show(restaurantDetailViewController, sender: self)
+        }
+    }
 }
     // swiftlint:disable force_cast
     extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate {
