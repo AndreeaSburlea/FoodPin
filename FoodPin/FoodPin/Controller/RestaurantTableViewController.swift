@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 class RestaurantTableViewController: UITableViewController {
     // swiftlint:disable line_length
@@ -90,6 +91,8 @@ class RestaurantTableViewController: UITableViewController {
         searchController.searchBar.tintColor = UIColor(named: "NavigationBarTitle")
 
         navigationItem.largeTitleDisplayMode = .always
+
+        prepareNotification()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -320,12 +323,54 @@ class RestaurantTableViewController: UITableViewController {
             self.show(restaurantDetailViewController, sender: self)
         }
     }
+
+    func prepareNotification() {
+        // Pick a restaurant randomly
+        let randomNum = Int.random(in: 0..<restaurants.count)
+        let suggestedRestaurant = restaurants[randomNum]
+
+        // Make sure the restaurant array is not empty
+        if restaurants.count <= 0 {
+            return
+        }
+
+        // Create the user notification
+        let content = UNMutableNotificationContent()
+        content.title = "Restaurant Recommendation"
+        content.subtitle = "Try new food today"
+        content.body = "I recommend you to check out \(suggestedRestaurant.name). The restaurant is one of your favorites. It is located at \(suggestedRestaurant.location). Would you like to give it a try?"
+        content.sound = UNNotificationSound.default
+        content.userInfo = ["phone": suggestedRestaurant.phone]
+        
+        let tempDirURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        let tempFileURL = tempDirURL.appendingPathComponent("suggested-restaurant.jpg")
+
+        if let image = UIImage(data: suggestedRestaurant.image as Data) {
+            try? image.jpegData(compressionQuality: 1.0)?.write(to: tempFileURL)
+            if let restaurantImage = try? UNNotificationAttachment(identifier: "restaurantImage", url: tempFileURL, options: nil) {
+                content.attachments = [restaurantImage]
+            }
+        }
+
+        // Custom actions
+        let categoryIdentifier = "foodpin.restaurantaction"
+        let makeReservationAction = UNNotificationAction(identifier: "foodpin.makeReservation", title: "Reserve a table", options: [.foreground])
+        let cancelAction = UNNotificationAction(identifier: "foodpin.cancel", title: "Later", options: [])
+        let category = UNNotificationCategory(identifier: categoryIdentifier, actions: [makeReservationAction, cancelAction], intentIdentifiers: [], options: [])
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+        content.categoryIdentifier = categoryIdentifier
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "foodpin.restaurantSuggestion", content: content, trigger: trigger)
+
+        // Schedule the notification
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+    }
 }
     // swiftlint:disable force_cast
     extension RestaurantDetailViewController: UITableViewDataSource, UITableViewDelegate {
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return 3
-
         }
 
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
